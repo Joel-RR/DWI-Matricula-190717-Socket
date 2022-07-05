@@ -32,7 +32,7 @@ export default class Server
             console.log('Cliente Conectado');
 
             //mensaje
-            socket.mensaje(cliente);
+            socket.mensaje(cliente,this.io);
             //desconectar
             socket.desconectar(cliente); 
         });
