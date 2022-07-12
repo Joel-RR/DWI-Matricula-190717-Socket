@@ -7,10 +7,19 @@ export const desconectar = (cliente: Socket) =>{
     });
 }
 
+
 export const mensaje = (cliente: Socket, io: socketIO.Server) =>
 {
     cliente.on('mensaje', (payload: { de: string, cuerpo: string}) => {
         console.log('Mensaje recibido', payload);
         io.emit('mensaje-nuevo', payload);
-    })
+    });
 }
+
+export const configurarUsuario = (cliente: Socket, io: socketIO.Server) =>
+{
+    cliente.on('configurar-usuario', (payload: { nombre: string}) => {
+        console.log('Configurando Usuario', payload);
+    });
+}
+
